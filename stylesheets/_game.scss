@@ -1,0 +1,52 @@
+﻿@import "common";
+
+#game {
+  @include pageGutters;
+  
+  .title {
+    @include title;
+  }
+    
+  .coins {
+    @include subtitle;
+  }
+  
+  .diamonds {
+    @include subtitle;
+  }
+  
+  #board {
+    background: $accentColor;
+    height: 400px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 40px;
+  }
+  
+  .result-rolling, .result-jackpot, .result-winner, .result-looser  {
+    @include title;
+    display: none;
+  }
+  
+  .rolling .result-rolling {
+    display: block;
+  }
+
+  .jackpot .result-jackpot {
+    display: block;
+  }
+
+  .winner .result-winner {
+    display: block;
+  }
+
+  .looser .result-looser {
+    display: block;
+  }
+  
+  .play-game-button {
+    @include button;
+    margin-top: 40px;
+  }
+}
