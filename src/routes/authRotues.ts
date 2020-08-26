@@ -22,7 +22,6 @@ router.get("/register", (request, response) => {
 
 router.post("/register", async (request, response) => {
     const registerRequest = request.body as RegisterRequest;
-    console.log(registerRequest);
     const hashResult = generateSaltAndHash(registerRequest.password);
     const member = await insertMember({
         name: registerRequest.name,

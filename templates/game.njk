@@ -20,7 +20,6 @@
     
     playButton.addEventListener("click", function() {
         var randomValue = Math.random();
-        console.log(randomValue);
         
         if (randomValue < 0.05) {
             fetch("/game/record-jackpot", { method: 'post' });
