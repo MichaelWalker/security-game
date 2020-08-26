@@ -24,9 +24,3 @@ CREATE TABLE owned_item (
     member_id           INT REFERENCES member(id),
     item_id             INT REFERENCES item(id)
 );
-
-DROP TABLE member;
-DROP TABLE item;
-DROP TABLE owned_item;
-
-SELECT * FROM member;

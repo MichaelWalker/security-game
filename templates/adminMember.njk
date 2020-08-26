@@ -1,26 +1,28 @@
 ﻿{% extends "_base.njk" %}
 
 {% block content %}
-    <h1>{{ member.name }}</h1>
+    <div id="admin-member-page">
+        <h1 class="title">{{ member.name }}</h1>
     
-    <h2>Details</h2>
-    <div>Email: {{ member.email }}</div>
-    <div>Profile Image: <img src="{{ member.image_url }}"/></div>
-    <div>Bio: {{ member.bio }}</div>
-    <div>Coins: {{ member.coins }}</div>
-    <div>Diamonds: {{ member.diamonds }}</div>
-    
-    <h2>Add Money</h2>
-    <form method="post" action="/admin/members/{{ member.id }}/add-coins">
-        <label>Add Coins
-            <input type="number" name="coins" required>
-        </label>
-        <button type="submit">Submit</button>
-    </form>
-    <form method="post" action="/admin/members/{{ member.id }}/add-diamonds">
-        <label>Add Diamonds
-            <input type="number" name="diamonds" required>
-        </label>
-        <button type="submit">Submit</button>
-    </form>
+        <h2 class="subtitle">Details</h2>
+        <div class="field"><span class="field-label">Email:</span> {{ member.email }}</div>
+        <div class="field"><span class="field-label">Profile Image:</span> <img class="profile-image" src="{{ member.image_url }}"/></div>
+        <div class="field"><span class="field-label">Bio:</span> {{ member.bio }}</div>
+        <div class="field"><span class="field-label">Coins:</span> {{ member.coins }}</div>
+        <div class="field"><span class="field-label">Diamonds:</span> {{ member.diamonds }}</div>
+        
+        <h2 class="subtitle">Add Money</h2>
+        <form method="post" action="/admin/members/{{ member.id }}/add-coins">
+            <label class="label">Add Coins
+                <input class="form-input" type="number" name="coins" required>
+            </label>
+            <button class="form-button" type="submit">Submit</button>
+        </form>
+        <form method="post" action="/admin/members/{{ member.id }}/add-diamonds">
+            <label class="label">Add Diamonds
+                <input class="form-input" type="number" name="diamonds" required>
+            </label>
+            <button class="form-button" type="submit">Submit</button>
+        </form>
+    </div>
 {% endblock %}

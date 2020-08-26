@@ -1,0 +1,83 @@
+﻿@import "common";
+
+#profile-page {
+  @include page;
+  
+  .title {
+    @include title;
+  }
+
+  .subtitle {
+    @include subtitle;
+  }
+
+  .field {
+    @include field;
+  }
+
+  .field-label {
+    @include fieldLabel();
+  }
+  
+  .profile-image {
+    height: 300px;
+    width: auto;
+  }
+  
+  .label {
+    @include formLabel;
+  }
+  
+  .form-input {
+    @include formInput;
+  }
+  
+  .form-button {
+    margin-top: 20px;
+    @include button;
+  }
+  
+  .summary {
+    margin-top: 40px;
+    outline: none;
+    border: none;
+    
+    &::-webkit-details-marker {
+      display: none;
+    }
+  }
+  
+  .summary-button {
+    @include button;
+  }
+  
+  .store-item-list {
+    @include list;
+  }
+  
+  .store-item {
+    padding: 20px 0;
+    border-bottom: 1px solid;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    max-width: 600px;
+  }
+  
+  .store-item-title {
+    @include body;
+  }
+  
+  .store-item-quantity {
+    @include body;
+    width: 40px;
+    background: $accentColor;
+    text-align: center;
+  }
+  
+  .store-link {
+    @include button;
+    margin-top: 40px;
+    display: block;
+  }
+}

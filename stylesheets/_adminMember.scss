@@ -1,0 +1,40 @@
+﻿
+@import "common";
+
+#admin-member-page {
+  @include page;
+
+  .title {
+    @include title;
+  }
+
+  .subtitle {
+    @include subtitle;
+  }
+
+  .field {
+    @include field;
+  }
+
+  .field-label {
+    @include fieldLabel();
+  }
+
+  .profile-image {
+    height: 300px;
+    width: auto;
+  }
+
+  .label {
+    @include formLabel;
+  }
+
+  .form-input {
+    @include formInput;
+  }
+
+  .form-button {
+    margin-top: 20px;
+    @include button;
+  }
+}
