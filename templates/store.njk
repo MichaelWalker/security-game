@@ -1,0 +1,26 @@
+﻿{% extends "_base.njk" %}
+
+{% block content %}
+    <h1>Store</h1>
+    
+    <div>Coins: {{ currentMember.coins }}</div>
+    <div>Diamonds: {{ currentMember.diamonds }}</div>
+    
+    <h2>Items for sale</h2>
+    <ul>
+        {% for item in items %}
+            <li>
+                <div>{{ item.title }}</div>
+                <div>
+                    Coins: {{ item.price_coins }} Diamonds: {{ item.price_diamonds }}
+                </div>
+                {% if (currentMember.coins >= item.price_coins) and (currentMember.diamonds >= item.price_diamonds) %}
+                <form method="post" action="/store">
+                    <input type="hidden" value="{{ item.id }}" name="itemId"/>
+                    <button type="submit">Purchase</button>
+                </form>
+                {% endif %}
+            </li>
+        {% endfor %}
+    </ul>
+{% endblock %}

@@ -1,0 +1,42 @@
+﻿{% extends "_base.njk" %}
+
+{% block content %}
+    <h1>The Game</h1>
+    
+    <div>Coins: <span id="coins">{{ currentMember.coins }}</span></div>
+    <div>Diamonds: <span id="diamonds">{{ currentMember.diamonds }}</span></div>
+    
+    <div>
+        
+    </div>
+    
+    <button id="play-button">Play</button>
+{% endblock %}
+
+{% block scripts %}
+    var playButton = document.getElementById("play-button");
+    var coins = document.getElementById("coins");
+    var diamonds = document.getElementById("diamonds");
+    
+    playButton.addEventListener("click", function() {
+        var randomValue = Math.random();
+        console.log(randomValue);
+        
+        if (randomValue < 0.05) {
+            fetch("/game/record-jackpot", { method: 'post' });
+            var currentDiamondsValue = parseInt(diamonds.textContent);
+            diamonds.textContent = currentDiamondsValue + 1;
+        }
+        else if (randomValue < 0.30) {
+            fetch("/game/record-win", { method: 'post' });
+            var currentCoinsValue = parseInt(coins.textContent);
+            coins.textContent = currentCoinsValue + 30;
+        }
+        else {
+            fetch("/game/record-loss", { method: 'post' });
+            var currentCoinsValue = parseInt(coins.textContent);
+            coins.textContent = currentCoinsValue - 10;
+        }
+    });
+    
+{% endblock %}

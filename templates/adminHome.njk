@@ -1,0 +1,53 @@
+﻿{% extends "_base.njk" %}
+
+{% block content %}
+    <h1>Admin</h1>
+    
+    <h2>Members</h2>
+    <ul>
+        {% for member in members %}
+            <li>
+                <a href="/admin/members/{{ member.id }}">
+                    <div>{{ member.name }}</div>
+                    <div>{{ member.coins }}</div>
+                    <div>{{ member.diamonds }}</div>
+                </a>
+            </li>
+        {% endfor %}
+    </ul>
+
+    <h2>Items</h2>
+    <ul>
+        {% for item in items %}
+            <li>
+                <div>{{ item.title }}</div>
+                <div>{{ item.price_coins }}</div>
+                <div>{{ item.price_diamonds }}</div>
+            </li>
+        {% endfor %}
+    </ul>
+    <details>
+        <form method="post" action="/admin/add-item">
+            <label>Title
+                <input type="text" name="title" required/>
+            </label>
+
+            <label>Description
+                <textarea name="description"></textarea>
+            </label>
+            
+            <label>Coins Cost
+                <input type="number" name="priceInCoins" value="0" required/>
+            </label>
+
+            <label>Diamonds Cost
+                <input type="number" name="priceInDiamonds" value="0" required/>
+            </label>
+            
+            <button type="submit">Create Item</button>
+        </form>
+        <summary>
+            Add New Item
+        </summary>
+    </details>
+{% endblock %}

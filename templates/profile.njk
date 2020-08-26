@@ -1,0 +1,49 @@
+﻿{% extends "_base.njk" %}
+
+{% block content %}
+    <h1>Your Profile</h1>
+    
+    <h2>Details</h2>
+    <div>Name: {{ currentMember.name }}</div>
+    <div>Email: {{ currentMember.email }}</div>
+    <div>Profile Image: <img src="{{ currentMember.image_url }}"/></div>
+    <div>Bio: {{ currentMember.bio }}</div>
+    <div>Coins: {{ currentMember.coins }}</div>
+    <div>Diamonds: {{ currentMember.diamonds }}</div>
+    
+    <details>
+        <form method="post" action="/profile">
+            <label>Name
+                <input type="text" name="name" value="{{ currentMember.name }}" required/>
+            </label>
+
+            <label>Email
+                <input type="email" name="email" value="{{ currentMember.email }}" required/>
+            </label>
+
+            <label>Image
+                <input type="text" name="image" value="{{ currentMember.image_url }}"/>
+            </label>
+
+            <label>Bio
+                <input type="text" name="bio" value="{{ currentMember.bio }}"/>
+            </label>
+            
+            <button type="submit">Submit</button>
+        </form>
+        <summary>
+            Edit Profile
+        </summary>
+    </details>
+    
+    <h2>Items</h2>
+    <ul>
+        {% for item in items %}
+            <li>
+                <div>{{ item.title }}</div>
+                <div>{{ item.quantity }}</div>
+            </li>
+        {% endfor %}
+    </ul>
+    <a href="/store">Purchase more items</a>
+{% endblock %}

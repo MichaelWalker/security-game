@@ -1,0 +1,17 @@
+﻿{% extends "_base.njk" %}
+
+{% block content %}
+    <h1>Login</h1>
+    <form method="post" action="/auth/login">
+        <label>Email
+            <input type="email" name="email" required/> 
+        </label>
+
+        <label>Password
+            <input type="password" name="password" required/>
+        </label>
+
+        <button type="submit">Login</button>
+    </form>
+    Or to create a new account <a href="/auth/register">click here</a>
+{% endblock %}
