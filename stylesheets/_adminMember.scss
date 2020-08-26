@@ -2,7 +2,7 @@
 @import "common";
 
 #admin-member-page {
-  @include page;
+  @include pageGutters;
 
   .title {
     @include title;

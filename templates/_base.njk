@@ -6,12 +6,14 @@
 </head>
 <body>
 <header>
-    <nav>
-        <a href="/">Home</a>
-        <a href="/game">Game</a>
-        <a href="/profile">Profile</a>
-        <a href="/store">Store</a>
-    </nav>
+    {% block nav %}
+        <nav class="nav-bar">
+            <a class="nav-item" href="/">Home</a>
+            <a class="nav-item" href="/game">Game</a>
+            <a class="nav-item" href="/profile">Profile</a>
+            <a class="nav-item" href="/store">Store</a>
+        </nav>
+    {% endblock %}
 </header>
 <main>
     {% block content %}{% endblock %}

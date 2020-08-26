@@ -50,7 +50,7 @@ $foregroundColor: black;
   width: 600px;
 }
 
-@mixin page() {
+@mixin pageGutters() {
   margin: auto;
   max-width: 1200px;
   padding: 40px;

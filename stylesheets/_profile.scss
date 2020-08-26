@@ -1,7 +1,7 @@
 ﻿@import "common";
 
 #profile-page {
-  @include page;
+  @include pageGutters;
   
   .title {
     @include title;

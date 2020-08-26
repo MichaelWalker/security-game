@@ -1,0 +1,27 @@
+﻿@import "common";
+
+#register-page {
+  @include pageGutters;
+
+  .title {
+    @include title;
+  }
+  
+  .form-label {
+    @include formLabel;
+  }
+
+  .form-input {
+    @include formInput;
+  }
+
+  .form-button {
+    @include button;
+    margin-top: 20px;
+  }
+
+  .login-message {
+    @include body;
+    margin-top: 20px;
+  }
+}
