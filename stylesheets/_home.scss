@@ -1,0 +1,33 @@
+﻿@import "common";
+
+#home-page {
+  @include pageGutters;
+  
+  .title {
+    @include title;
+  }
+  
+  .link-container {
+    margin: -20px;
+    display: flex;
+    flex-direction: row;
+  }
+  
+  .home-page-link {
+    @include subtitle;
+    background: $accentColor;
+    transition: all ease 0.3s;
+    text-decoration: none;
+    height: 600px;
+    width: 30%;
+    margin: 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 8px;    
+    
+    &:hover {
+      background: darken($accentColor, 10%);
+    }
+  }
+}

@@ -1,8 +1,12 @@
 ﻿{% extends "_base.njk" %}
 
 {% block content %}
-    <h1>Secure Game</h1>
-    <a href="/game">Play the game</a>
-    <a href="/profile">See your profile</a>
-    <a href="/store">Visit the Store</a>
+    <div id="home-page">
+        <h1 class="title">Secure Game</h1>
+        <div class="link-container">
+            <a class="home-page-link" href="/game">Play the game</a>
+            <a class="home-page-link" href="/profile">See your profile</a>
+            <a class="home-page-link" href="/store">Visit the Store</a>
+        </div>
+    </div>
 {% endblock %}
