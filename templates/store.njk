@@ -1,26 +1,31 @@
 ﻿{% extends "_base.njk" %}
 
 {% block content %}
-    <h1>Store</h1>
-    
-    <div>Coins: {{ currentMember.coins }}</div>
-    <div>Diamonds: {{ currentMember.diamonds }}</div>
-    
-    <h2>Items for sale</h2>
-    <ul>
-        {% for item in items %}
-            <li>
-                <div>{{ item.title }}</div>
-                <div>
-                    Coins: {{ item.price_coins }} Diamonds: {{ item.price_diamonds }}
-                </div>
-                {% if (currentMember.coins >= item.price_coins) and (currentMember.diamonds >= item.price_diamonds) %}
-                <form method="post" action="/store">
-                    <input type="hidden" value="{{ item.id }}" name="itemId"/>
-                    <button type="submit">Purchase</button>
-                </form>
-                {% endif %}
-            </li>
-        {% endfor %}
-    </ul>
+    <div id="store-page">
+        <h1 class="title">Store</h1>
+        
+        <div class="subtitle">Coins: {{ currentMember.coins }}</div>
+        <div class="subtitle">Diamonds: {{ currentMember.diamonds }}</div>
+        
+        <h2 class="subtitle">Items for sale</h2>
+        <ul class="item-list">
+            {% for item in items %}
+                <li class="item">
+                    <div class="item-name">{{ item.title }}</div>
+                    <div class="item-cost">
+                        Coins: {{ item.price_coins }} Diamonds: {{ item.price_diamonds }}
+                    </div>
+
+                    <form method="post" action="/store">
+                        <input type="hidden" value="{{ item.id }}" name="itemId"/>
+                        {% if (currentMember.coins >= item.price_coins) and (currentMember.diamonds >= item.price_diamonds) %}
+                            <button class="purchase-button" type="submit">Purchase</button>
+                        {% else %}
+                            <button class="purchase-button" disabled>Purchase</button>
+                        {% endif %}
+                    </form>
+                </li>
+            {% endfor %}
+        </ul>
+    </div>
 {% endblock %}

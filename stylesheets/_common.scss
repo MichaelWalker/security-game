@@ -67,6 +67,10 @@ $foregroundColor: black;
   border: 1px solid;
   background: none;
   text-decoration: none;
+
+  &:disabled {
+    opacity: 0.3;
+  }
 }
 
 @mixin list {
